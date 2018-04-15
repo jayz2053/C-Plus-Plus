@@ -83,20 +83,44 @@ void LinkdList<T>::insert(T value, int index){
 
 }
 
+//method for adding a node to the front of the list
 template <class T>
 void LinkdList<T>::push_front(T value){
 
-    node<T> *newNode = new Node(value);
-    newNode->next = head;
-    head->previous = newNode;
-    head = newNode;
+    if(size == 0){
+      head = new Node(value);
+      head->previous = NULL;
+      head->next = NULL;
+      tail = head;
+    }
+    else{
+      node<T> *newNode = new Node(value);
+      newNode->next = head;
+      head->previous = newNode;
+      head = newNode;
+    }
 
     size++;
 }
 
+//method for addind a node to the end of the list
 template <class T>
 void LinkdList<T>::push_back(T value){
 
+  if(size == 0){
+    head = new Node(value);
+    head->previous = NULL;
+    head->next = NULL;
+    tail = head;
+  }
+  else{
+    node<T> *newNode = new Node(value);
+    newNode->previous = tail;
+    tail->next = newNode;
+    tail = newNode;
+  }
+
+  size++;
 }
 
 template <class T>
