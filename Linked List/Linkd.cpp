@@ -53,7 +53,6 @@ T LinkdList<T>::get_front(){
 
 template <class T>
 T LinkdList<T>::get_back(){
-
 }
 
 template <class T>

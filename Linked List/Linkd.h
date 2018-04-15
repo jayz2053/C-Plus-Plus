@@ -13,11 +13,13 @@ template<class T>
 class node{
   public:
     T value;
-    node *next;
+    node<T> *next;
+    node<T> *previous;
 
     node(T nodeValue){
       value = nodeValue;
       next = NULL;
+      previous = NULL;
     }
 }
 
