@@ -45,7 +45,7 @@ void LinkdList<T>::pop_front(){
 
   //other wise get the second node in the list
   //and shift the address of head
-  node<T> temp = head->next;
+  node<T> *temp = head->next;
   temp->previous = NULL;
   delete head;
   head = temp;
@@ -63,7 +63,7 @@ void LinkdList<T>::remove_at(int index){
     return;
   }
 
-  node<T> temp = head;
+  node<T> *temp = head;
 
   //step through loop until we reach the index
   for(int i = 0; i < index; i++ ){
@@ -75,7 +75,7 @@ void LinkdList<T>::remove_at(int index){
   temp->next->previous = temp->previous;
 
   delete temp;
-
+  size--;
 }
 
 template <class T>
@@ -86,6 +86,12 @@ void LinkdList<T>::insert(T value, int index){
 template <class T>
 void LinkdList<T>::push_front(T value){
 
+    node<T> *newNode = new Node(value);
+    newNode->next = head;
+    head->previous = newNode;
+    head = newNode;
+
+    size++;
 }
 
 template <class T>
