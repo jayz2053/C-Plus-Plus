@@ -30,8 +30,8 @@ Implementation splits the difference allowing easy access to the front or rear
 template<class T>
 class LinkdList{
   private:
-    node *head;
-    node *tail;
+    node<T> *head;
+    node<T> *tail;
     int size;
 
   public:
@@ -51,7 +51,7 @@ class LinkdList{
 
     //methods for getting values from the list
     T get_front();
-    T get_rear():
+    T get_back():
     T get_at(int);
 
     //destructor
